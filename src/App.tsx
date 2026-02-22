@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import LocomotiveScroll from "locomotive-scroll";
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,8 +11,25 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    const scroll = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+      multiplier: 1,
+    });
+
+    return () => {
+      scroll.destroy();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div data-scroll-container ref={scrollRef}>
       <Navbar />
       <Hero />
       <About />
