@@ -218,7 +218,7 @@ const Hero = () => {
                    style={{ animation: 'fadeSlideUp 0.7s ease forwards 0.1s' }}>
                 <span className="text-xs font-medium text-emerald-700 tracking-widest
                                  border border-emerald-700 px-4 py-1 bg-emerald-50/70 backdrop-blur-sm">
-                  SINCE 1999
+                  SINCE 2000
                 </span>
               </div>
 
@@ -226,7 +226,7 @@ const Hero = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold
                              text-gray-800 leading-tight opacity-0"
                   style={{ animation: 'fadeSlideUp 0.8s ease forwards 0.25s' }}>
-                PREMIUM<br />
+                
                 <span className="text-gray-700">STONE SHADOW</span>
               </h1>
 

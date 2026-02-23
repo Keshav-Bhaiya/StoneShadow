@@ -71,6 +71,7 @@ const Navbar = () => {
                 style={{ background: 'linear-gradient(135deg, #2c2016 0%, #5C3D2E 100%)' }}
               >
                 <span className="font-serif font-bold text-[18px] text-white tracking-tight">S</span>
+                <span className="font-serif font-bold text-[18px] text-white tracking-tight">S</span>
               </div>
 
               {/* Text */}
