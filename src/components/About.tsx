@@ -186,15 +186,7 @@ const About = () => {
             </div>
 
             {/* Read Full Story button */}
-            <button
-              onClick={() => navigate('/about')}
-              className="inline-flex items-center gap-2 font-semibold text-[13px] tracking-wide
-                         pb-1 border-b-2 border-[#5C3D2E] text-[#5C3D2E]
-                         hover:gap-4 transition-all duration-300 group/btn mt-2"
-            >
-              Read Our Full Story
-              <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
-            </button>
+            
           </div>
         </div>
       </div>

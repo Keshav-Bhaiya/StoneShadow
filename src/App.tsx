@@ -1,44 +1,23 @@
-import { useEffect, useRef } from "react";
-import LocomotiveScroll from "locomotive-scroll";
+import { Routes, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Categories from './components/Categories';
-import Gallery from './components/Gallery';
-import Stats from './components/Stats';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import GalleryPage from "./pages/GalleryPage";
+
 
 function App() {
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!scrollRef.current) return;
-
-    const scroll = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-      multiplier: 1,
-    });
-
-    return () => {
-      scroll.destroy();
-    };
-  }, []);
-
   return (
-    <div data-scroll-container ref={scrollRef}>
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Categories />
-      <Gallery />
-      <Stats />
-      <Contact />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

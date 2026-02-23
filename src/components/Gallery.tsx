@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
   id:       i,
@@ -190,8 +191,11 @@ function GalleryCard({ project, index }: GalleryCardProps) {
 ══════════════════════════════════════ */
 function LoadMoreButton() {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <button
+      onClick={() => navigate('/gallery')}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="relative overflow-hidden font-mono text-xs font-bold tracking-[4px]
