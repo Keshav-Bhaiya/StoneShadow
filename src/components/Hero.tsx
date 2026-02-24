@@ -198,7 +198,7 @@ const Hero = () => {
                    style={{ animation: 'fadeSlideUp 0.7s ease forwards 0.1s' }}>
                 <span className="text-xs font-medium text-emerald-700 tracking-widest
                                  border border-emerald-700 px-4 py-1 bg-emerald-50/70 backdrop-blur-sm">
-                  SINCE 2000
+                  STONE SOVEREIGN
                 </span>
               </div>
 
