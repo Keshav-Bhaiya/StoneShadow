@@ -3,27 +3,27 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SLIDES = [
   {
-    url: 'https://i.pinimg.com/1200x/4d/d3/a8/4dd3a8822ea0ad4f066c2a084d23852c.jpg',
+    url: 'https://i.pinimg.com/736x/26/84/43/2684430f21b532580c0eff821fb325bc.jpg',
     title: 'Luxury Villa Exterior',
     sub: 'Premium Stone Cladding',
   },
   {
-    url: 'https://i.pinimg.com/736x/f6/f0/82/f6f082d0441101faab9c48eae5b05b69.jpg',
+    url: 'https://i.pinimg.com/736x/e4/e4/19/e4e419a78279284ae74e001bda8247e1.jpg',
     title: 'Modern Architecture',
     sub: 'Black Basalt Wall Panels',
   },
   {
-    url: 'https://i.pinimg.com/736x/7c/e1/8c/7ce18cd667d80227377ca800f5d417c9.jpg',
+    url: 'https://i.pinimg.com/736x/5f/23/b0/5f23b016402d9a6cead1bdb10a60a728.jpg',
     title: 'Elegant Interiors',
     sub: 'Natural Stone Flooring',
   },
   {
-    url: 'https://i.pinimg.com/736x/bf/db/3a/bfdb3a30ebb79108362144747d1ffecf.jpg',
+    url: 'https://i.pinimg.com/1200x/49/e2/c3/49e2c384c6d112eff88ff3ac47dd85cd.jpg',
     title: 'Landscape Design',
     sub: 'Sandstone Garden Pavers',
   },
   {
-    url: 'https://i.pinimg.com/1200x/4d/d3/a8/4dd3a8822ea0ad4f066c2a084d23852c.jpg',
+    url: 'https://i.pinimg.com/736x/15/49/98/154998014d65956f13c4297c4b6e2bf7.jpg',
     title: 'Stone Shadow Projects',
     sub: 'Crafted for Every Space',
   },

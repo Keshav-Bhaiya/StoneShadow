@@ -1,9 +1,6 @@
-import { Gem, Globe, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Gem, Globe } from 'lucide-react';
 
 const About = () => {
-  const navigate = useNavigate();
-
   return (
     <section
       id="about"
@@ -80,8 +77,8 @@ const About = () => {
                top: d.t, left: d.l,
                width: d.s, height: d.s,
                background: d.c,
-               boxShadow: `0 0 ${d.s * 3}px ${d.c}`,
-               animation: `glowPulse ${d.dur}s ease-in-out infinite`,
+               boxShadow:      `0 0 ${d.s * 3}px ${d.c}`,
+               animation:      `glowPulse ${d.dur}s ease-in-out infinite`,
                animationDelay: `${i * 1.3}s`,
              }} />
       ))}
@@ -97,8 +94,8 @@ const About = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Luxury Interior"
+                src="https://i.pinimg.com/1200x/57/db/fe/57dbfe70e5bc4dd0e953c37d42c4aea4.jpg"
+                alt="Stone Shadow"
                 className="w-full h-96 lg:h-[520px] object-cover transform group-hover:scale-105
                            transition-transform duration-700"
               />
@@ -106,16 +103,19 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
               {/* Badge */}
-              <div className="absolute bottom-8 left-8 bg-white/96 backdrop-blur-sm p-5 shadow-xl
-                              border-l-[3px] border-[#5C3D2E] max-w-[220px]
+              <div className="absolute bottom-8 left-8 bg-white/96  p-5 shadow-xl
+                              border-l-[3px] border-[#dcccab] max-w-[220px]
                               animate-[fadeSlideUp_0.8s_ease_forwards_0.5s] opacity-0">
                 <div className="text-5xl font-bold font-serif mb-1"
-                     style={{ color: '#5C3D2E' }}>
-                  25+
+                     style={{ color:  '#dcccab' }}>
+                  10+
                 </div>
-                <div className="text-[11px] text-gray-700 font-semibold tracking-[1.5px] leading-[1.6] uppercase">
-                  Years of Excellence<br />in Stone Export
-                </div>
+                <div
+    className="text-[11px] font-semibold tracking-[1.5px] leading-[1.6] uppercase"
+    style={{ color: '#dcccab' }}   // slightly darker warm gold
+  >
+    Years of Excellence<br />in Stone Export
+  </div>
               </div>
             </div>
 
@@ -145,7 +145,8 @@ const About = () => {
             </p>
 
             {/* Divider */}
-            <div className="w-16 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg,#5C3D2E,transparent)' }} />
+            <div className="w-16 h-[2px] rounded-full"
+                 style={{ background: 'linear-gradient(90deg,#5C3D2E,transparent)' }} />
 
             {/* Para */}
             <p className="text-gray-600 text-[15px] leading-[1.9]">
@@ -184,9 +185,6 @@ const About = () => {
                 </p>
               </div>
             </div>
-
-            {/* Read Full Story button */}
-            
           </div>
         </div>
       </div>

@@ -25,36 +25,36 @@ interface Project {
 
 const projects: Project[] = [
   // COBBLESTONES
-  { image: 'https://i.pinimg.com/1200x/0b/d5/2d/0bd52d036740cd746a2ec4638703af10.jpg',                                name: 'Cobble Stone',             category: 'COBBLESTONES',       span: 'row-span-2' },
-  { image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Black Limestone Cobbles',  category: 'COBBLESTONES',       span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/736x/58/6c/7a/586c7a850429e967b730a3981e520fa4.jpg',                                name: 'Cobble Stone',             category: 'COBBLESTONES',       span: 'row-span-2' },
+  { image: 'https://i.pinimg.com/1200x/df/d5/b6/dfd5b662c66d731e0e15f9cb0322c1e8.jpg',                               name: 'Black Limestone Cobbles',  category: 'COBBLESTONES',       span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Sagr Black Cobbles',       category: 'COBBLESTONES',       span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/3934512/pexels-photo-3934512.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Multicolor Cobbles',       category: 'COBBLESTONES',       span: 'row-span-1' },
 
   // WALL CLADDING
   { image: 'https://i.pinimg.com/1200x/60/80/4a/60804ac009ce365d492f3f6712e5c0a2.jpg',                                name: 'Wall Cladding Exterior',   category: 'WALL CLADDING',      span: 'row-span-2' },
-  { image: 'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Mosaic Pattern Interior',  category: 'WALL CLADDING',      span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/736x/83/53/54/835354608adf130aa25fd84286042cc3.jpg',                                 name: 'Wall Cladding',            category: 'WALL CLADDING',      span: 'row-span-1' },
   { image: 'https://i.pinimg.com/1200x/ec/05/54/ec0554f2a33129243fcb631add5f37d5.jpg',                                name: 'Crazy Sandstone Cladding', category: 'WALL CLADDING',      span: 'row-span-1' },
   { image: 'https://i.pinimg.com/736x/61/c7/9f/61c79f2dfdd7e9404d4642638bb0f683.jpg',                                 name: 'Stone Carving',            category: 'WALL CLADDING',      span: 'row-span-1' },
 
   // STONE CRAFT
   { image: 'https://i.pinimg.com/736x/da/d0/4d/dad04d14c805ba6ae6f9f3523c46831b.jpg',                                 name: 'Stone Craft',              category: 'STONE CRAFT',        span: 'row-span-2' },
-  { image: 'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Stone Statue',             category: 'STONE CRAFT',        span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/736x/cf/86/4c/cf864c7ff48cdbfd60a42cf3776d9fad.jpg',                                 name: 'Morals',                   category: 'STONE CRAFT',        span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/2227832/pexels-photo-2227832.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Stone Table',              category: 'STONE CRAFT',        span: 'row-span-1' },
   { image: 'https://i.pinimg.com/1200x/3c/a8/bf/3ca8bff094f09eb6ec132ba301624a21.jpg',                                name: 'Wall Fountain',            category: 'STONE CRAFT',        span: 'row-span-1' },
 
   // SANDSTONE FLOORING
   { image: 'https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Sandstone Flooring',       category: 'SANDSTONE FLOORING', span: 'row-span-2' },
-  { image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600',        name: 'Dholpur Stone',            category: 'SANDSTONE FLOORING', span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/1200x/7d/0d/ea/7d0dea976355aac4603cbe5fa3ba55ef.jpg',                                name: 'Black Lime Stone',         category: 'SANDSTONE FLOORING', span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Gwalior Mint Sandstone',   category: 'SANDSTONE FLOORING', span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Teak Sandstone',           category: 'SANDSTONE FLOORING', span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/3822843/pexels-photo-3822843.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Rainbow Sandstone',        category: 'SANDSTONE FLOORING', span: 'row-span-1' },
 
   // SPECIAL STONES
-  { image: 'https://images.pexels.com/photos/3041977/pexels-photo-3041977.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Mandana Red Stone',        category: 'SPECIAL STONES',     span: 'row-span-2' },
+  { image: 'https://i.pinimg.com/1200x/c8/3f/23/c83f236f7fa7fce7fc9094bf3f8ae061.jpg',                               name: 'Mandana Red Stone',        category: 'SPECIAL STONES',     span: 'row-span-2' },
   { image: 'https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Kandla Grey Stone',        category: 'SPECIAL STONES',     span: 'row-span-1' },
-  { image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Kota Stone',               category: 'SPECIAL STONES',     span: 'row-span-1' },
-  { image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Kadappa Stone',            category: 'SPECIAL STONES',     span: 'row-span-1' },
-  { image: 'https://images.pexels.com/photos/3934512/pexels-photo-3934512.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Sagar Black',              category: 'SPECIAL STONES',     span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/736x/da/31/7a/da317a7a0500037fc5daf47b717cf451.jpg',                                 name: 'Kota Stone',               category: 'SPECIAL STONES',     span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/1200x/6e/be/7e/6ebe7e7f7b09d00371208c8329b6a806.jpg',                               name: 'Mandana Red Stone',        category: 'SPECIAL STONES',     span: 'row-span-1' },
+  { image: 'https://i.pinimg.com/736x/7a/ee/16/7aee16df78e6c9bf61dc92ef2d73744a.jpg',                                 name: 'Dholpur sand stone',       category: 'SPECIAL STONES',     span: 'row-span-1' },
   { image: 'https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=600',      name: 'Basalt',                   category: 'SPECIAL STONES',     span: 'row-span-1' },
 ];
 
@@ -375,13 +375,13 @@ const Gallery = () => {
             key={i}
             className="absolute rounded-full pointer-events-none"
             style={{
-              top:        d.t,
-              left:       d.l,
-              width:      d.s,
-              height:     d.s,
-              background: d.c,
-              boxShadow:  `0 0 ${d.s * 3}px ${d.c}`,
-              animation:  `glowPulse ${d.dur}s ease-in-out infinite`,
+              top:            d.t,
+              left:           d.l,
+              width:          d.s,
+              height:         d.s,
+              background:     d.c,
+              boxShadow:      `0 0 ${d.s * 3}px ${d.c}`,
+              animation:      `glowPulse ${d.dur}s ease-in-out infinite`,
               animationDelay: `${i * 1.2}s`,
             }}
           />
