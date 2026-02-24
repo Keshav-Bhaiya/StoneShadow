@@ -24,7 +24,7 @@ const Home = () => {
         <Categories />
       </section>
 
-      {/* GALLERY PREVIEW (Home Section) */}
+      {/* GALLERY PREVIEW */}
       <section id="gallery" className="scroll-mt-24">
         <Gallery />
       </section>

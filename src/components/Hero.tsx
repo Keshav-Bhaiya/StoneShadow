@@ -73,9 +73,30 @@ const Hero = () => {
     startTimer();
   };
 
+  /* ── Fixed scroll helper ──────────────────────────────────────────
+     "projects" doesn't exist as an id in Home.tsx.
+     So we try a fallback chain: projects → gallery → stats
+     Also offsets by 70px to account for the fixed navbar.
+  ──────────────────────────────────────────────────────────────── */
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const fallbacks: Record<string, string[]> = {
+      products: ['products', 'categories'],
+      projects: ['gallery', 'projects', 'stats'],  // VIEW PROJECTS → gallery section
+    };
+
+    const chain = fallbacks[id] ?? [id];
+    let el: HTMLElement | null = null;
+
+    for (const key of chain) {
+      el = document.getElementById(key);
+      if (el) break;
+    }
+
+    if (el) {
+      const navbarHeight = 70;
+      const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -91,116 +112,75 @@ const Hero = () => {
 
       {/* Large soft-glow orbs */}
       <div className="absolute pointer-events-none"
-           style={{
-             width: 480, height: 480, top: '-8%', left: '-6%',
+           style={{ width: 480, height: 480, top: '-8%', left: '-6%',
              background: 'radial-gradient(circle, rgba(180,140,100,0.12) 0%, transparent 70%)',
-             animation: 'orbFloat 18s ease-in-out infinite alternate',
-           }} />
+             animation: 'orbFloat 18s ease-in-out infinite alternate' }} />
       <div className="absolute pointer-events-none"
-           style={{
-             width: 360, height: 360, top: '50%', left: '65%',
+           style={{ width: 360, height: 360, top: '50%', left: '65%',
              background: 'radial-gradient(circle, rgba(90,140,90,0.09) 0%, transparent 70%)',
-             animation: 'orbFloat 22s ease-in-out infinite alternate-reverse',
-             animationDelay: '4s',
-           }} />
+             animation: 'orbFloat 22s ease-in-out infinite alternate-reverse', animationDelay: '4s' }} />
       <div className="absolute pointer-events-none"
-           style={{
-             width: 280, height: 280, top: '25%', left: '35%',
+           style={{ width: 280, height: 280, top: '25%', left: '35%',
              background: 'radial-gradient(circle, rgba(200,170,110,0.08) 0%, transparent 70%)',
-             animation: 'orbFloat 15s ease-in-out infinite alternate',
-             animationDelay: '2s',
-           }} />
+             animation: 'orbFloat 15s ease-in-out infinite alternate', animationDelay: '2s' }} />
 
       {/* Diagonal light beam — top-left */}
       <div className="absolute pointer-events-none"
-           style={{
-             top: '-12%', left: '-6%',
-             width: '55%', height: '75%',
+           style={{ top: '-12%', left: '-6%', width: '55%', height: '75%',
              background: 'linear-gradient(135deg, rgba(210,180,140,0.14) 0%, transparent 60%)',
-             transform: 'rotate(-14deg)',
-             animation: 'beamPulse 7s ease-in-out infinite',
-           }} />
+             transform: 'rotate(-14deg)', animation: 'beamPulse 7s ease-in-out infinite' }} />
 
       {/* Diagonal light beam — bottom-right */}
       <div className="absolute pointer-events-none"
-           style={{
-             bottom: '-18%', right: '-6%',
-             width: '42%', height: '60%',
+           style={{ bottom: '-18%', right: '-6%', width: '42%', height: '60%',
              background: 'linear-gradient(315deg, rgba(100,160,110,0.07) 0%, transparent 60%)',
              transform: 'rotate(-14deg)',
-             animation: 'beamPulse 9s ease-in-out infinite reverse',
-             animationDelay: '3s',
-           }} />
+             animation: 'beamPulse 9s ease-in-out infinite reverse', animationDelay: '3s' }} />
 
       {/* Fine dot/grid texture */}
       <div className="absolute inset-0 pointer-events-none"
-           style={{
-             backgroundImage: 'radial-gradient(circle, rgba(92,61,46,0.07) 1px, transparent 1px)',
-             backgroundSize: '36px 36px',
-             opacity: 1,
-           }} />
+           style={{ backgroundImage: 'radial-gradient(circle, rgba(92,61,46,0.07) 1px, transparent 1px)',
+             backgroundSize: '36px 36px' }} />
 
       {/* Shimmer sweep */}
       <div className="absolute inset-0 pointer-events-none"
-           style={{
-             background: 'linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.20) 50%, transparent 62%)',
-             backgroundSize: '200% 100%',
-             animation: 'shimmerSweep 8s linear infinite',
-           }} />
+           style={{ background: 'linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.20) 50%, transparent 62%)',
+             backgroundSize: '200% 100%', animation: 'shimmerSweep 8s linear infinite' }} />
 
-      {/* Floating particles / bubbles */}
+      {/* Floating particles */}
       {PARTICLES.map(p => (
-        <div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            width:           p.size,
-            height:          p.size,
-            left:            `${p.left}%`,
-            bottom:          '-6%',
-            opacity:         p.opacity,
-            background:      `radial-gradient(circle, ${p.colorA} 0%, ${p.colorB} 100%)`,
-            filter:          p.blurred ? 'blur(2.5px)' : 'none',
-            boxShadow:       `0 0 ${p.size * 1.5}px ${p.colorA}`,
-            animation:       `floatUp ${p.duration}s ease-in-out ${p.delay}s infinite`,
-          }}
-        />
+        <div key={p.id} className="absolute rounded-full pointer-events-none"
+             style={{ width: p.size, height: p.size, left: `${p.left}%`, bottom: '-6%',
+               opacity: p.opacity,
+               background: `radial-gradient(circle, ${p.colorA} 0%, ${p.colorB} 100%)`,
+               filter: p.blurred ? 'blur(2.5px)' : 'none',
+               boxShadow: `0 0 ${p.size * 1.5}px ${p.colorA}`,
+               animation: `floatUp ${p.duration}s ease-in-out ${p.delay}s infinite` }} />
       ))}
 
       {/* Spinning geometric accents */}
-      <div className="absolute top-24 right-8 w-20 h-20 border border-[#5C3D2E]/12 rotate-12
-                      pointer-events-none"
+      <div className="absolute top-24 right-8 w-20 h-20 border border-[#5C3D2E]/12 rotate-12 pointer-events-none"
            style={{ animation: 'spinSlow 35s linear infinite' }} />
-      <div className="absolute top-32 right-14 w-10 h-10 border border-[#5C3D2E]/10
-                      pointer-events-none"
+      <div className="absolute top-32 right-14 w-10 h-10 border border-[#5C3D2E]/10 pointer-events-none"
            style={{ animation: 'spinSlow 22s linear infinite reverse' }} />
-      <div className="absolute bottom-28 left-8 w-16 h-16 border border-emerald-700/10 -rotate-12
-                      pointer-events-none"
+      <div className="absolute bottom-28 left-8 w-16 h-16 border border-emerald-700/10 -rotate-12 pointer-events-none"
            style={{ animation: 'spinSlow 28s linear infinite' }} />
-      <div className="absolute bottom-40 left-16 w-8 h-8 border border-amber-800/10
-                      pointer-events-none"
+      <div className="absolute bottom-40 left-16 w-8 h-8 border border-amber-800/10 pointer-events-none"
            style={{ animation: 'spinSlow 18s linear infinite reverse' }} />
 
-      {/* Small glowing dots scattered */}
+      {/* Small glowing dots */}
       {[
-        { t: '18%', l: '8%',  s: 5,  c: 'rgba(180,140,100,0.5)', dur: 4  },
-        { t: '65%', l: '4%',  s: 4,  c: 'rgba(90,140,90,0.4)',   dur: 5  },
-        { t: '35%', l: '92%', s: 6,  c: 'rgba(180,140,100,0.4)', dur: 6  },
-        { t: '80%', l: '88%', s: 4,  c: 'rgba(90,140,90,0.35)',  dur: 4  },
-        { t: '12%', l: '52%', s: 5,  c: 'rgba(180,140,100,0.3)', dur: 7  },
+        { t: '18%', l: '8%',  s: 5, c: 'rgba(180,140,100,0.5)', dur: 4 },
+        { t: '65%', l: '4%',  s: 4, c: 'rgba(90,140,90,0.4)',   dur: 5 },
+        { t: '35%', l: '92%', s: 6, c: 'rgba(180,140,100,0.4)', dur: 6 },
+        { t: '80%', l: '88%', s: 4, c: 'rgba(90,140,90,0.35)',  dur: 4 },
+        { t: '12%', l: '52%', s: 5, c: 'rgba(180,140,100,0.3)', dur: 7 },
       ].map((d, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            top: d.t, left: d.l,
-            width: d.s, height: d.s,
-            background: d.c,
-            boxShadow: `0 0 ${d.s * 3}px ${d.c}`,
-            animation: `glowPulse ${d.dur}s ease-in-out infinite`,
-            animationDelay: `${i * 1.2}s`,
-          }}
-        />
+        <div key={i} className="absolute rounded-full pointer-events-none"
+             style={{ top: d.t, left: d.l, width: d.s, height: d.s,
+               background: d.c, boxShadow: `0 0 ${d.s * 3}px ${d.c}`,
+               animation: `glowPulse ${d.dur}s ease-in-out infinite`,
+               animationDelay: `${i * 1.2}s` }} />
       ))}
 
       {/* ════════════════════════════════════════════
@@ -226,11 +206,10 @@ const Hero = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold
                              text-gray-800 leading-tight opacity-0"
                   style={{ animation: 'fadeSlideUp 0.8s ease forwards 0.25s' }}>
-                
                 <span className="text-gray-700">STONE SHADOW</span>
               </h1>
 
-              {/* Italic */}
+              {/* Italic tagline */}
               <p className="text-lg sm:text-xl italic text-amber-800 font-serif opacity-0"
                  style={{ animation: 'fadeSlideUp 0.8s ease forwards 0.4s' }}>
                 Crafted for Interiors &amp; Exteriors
@@ -243,9 +222,11 @@ const Hero = () => {
                 globally for your architectural masterpieces.
               </p>
 
-              {/* Buttons */}
+              {/* ── Buttons ── */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 opacity-0"
                    style={{ animation: 'fadeSlideUp 0.8s ease forwards 0.7s' }}>
+
+                {/* EXPLORE STONES → #products (or #categories fallback) */}
                 <button
                   onClick={() => scrollTo('products')}
                   className="relative overflow-hidden bg-[#5C3D2E] text-white px-8 py-3 font-medium
@@ -260,6 +241,7 @@ const Hero = () => {
                   <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
                 </button>
 
+                {/* VIEW PROJECTS → #gallery (fallback chain: gallery → stats) */}
                 <button
                   onClick={() => scrollTo('projects')}
                   className="border-2 border-gray-800 text-gray-800 px-8 py-3 font-medium
@@ -314,6 +296,7 @@ const Hero = () => {
                      style={{ animation: 'progressBar 3.5s linear infinite' }} />
               </div>
 
+              {/* Prev */}
               <button
                 onClick={() => goTo('left')}
                 className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white
@@ -323,6 +306,7 @@ const Hero = () => {
                 <ChevronLeft size={24} className="text-gray-800" />
               </button>
 
+              {/* Next */}
               <button
                 onClick={() => goTo('right')}
                 className="absolute top-1/2 right-4 -translate-y-1/2 bg-[#5C3D2E]/90
@@ -332,6 +316,7 @@ const Hero = () => {
                 <ChevronRight size={24} className="text-white" />
               </button>
 
+              {/* Caption */}
               <div key={`caption-${current}`}
                    className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm p-4
                               shadow-xl max-w-xs animate-[fadeSlideUp_0.5s_ease_forwards]">
@@ -341,12 +326,14 @@ const Hero = () => {
                 <p className="text-sm text-gray-600">{SLIDES[current].sub}</p>
               </div>
 
+              {/* Counter */}
               <div className="absolute top-5 left-5 bg-black/40 backdrop-blur-sm text-white
                               text-xs font-medium px-3 py-1.5 rounded-full">
                 {String(current + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
               </div>
             </div>
 
+            {/* Decorative border */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border-2
                             border-[#5C3D2E]/20 rounded-lg -z-10" />
           </div>
@@ -364,8 +351,8 @@ const Hero = () => {
           to   { opacity: 1; transform: translateX(0);    }
         }
         @keyframes progressBar {
-          from { width: 0%;    }
-          to   { width: 100%;  }
+          from { width: 0%;   }
+          to   { width: 100%; }
         }
         @keyframes floatUp {
           0%   { transform: translateY(0px) scale(1);      opacity: 0;   }
@@ -380,7 +367,7 @@ const Hero = () => {
         }
         @keyframes beamPulse {
           0%, 100% { opacity: 1;   }
-          50%       { opacity: 0.3; }
+          50%      { opacity: 0.3; }
         }
         @keyframes shimmerSweep {
           0%   { background-position: -200% 0; }
@@ -391,8 +378,8 @@ const Hero = () => {
           to   { transform: rotate(360deg); }
         }
         @keyframes glowPulse {
-          0%, 100% { opacity: 0.4; transform: scale(1);    }
-          50%       { opacity: 1;   transform: scale(1.6);  }
+          0%, 100% { opacity: 0.4; transform: scale(1);   }
+          50%      { opacity: 1;   transform: scale(1.6); }
         }
       `}</style>
     </section>
